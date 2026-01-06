@@ -2,6 +2,40 @@ import uuid
 import random
 from datetime import datetime, timedelta
 
+ENGINEERING_TASKS = [
+    "Fix {component} bug",
+    "Refactor {component} module",
+    "Add tests for {component}",
+    "Investigate {component} issue"
+]
+
+MARKETING_TASKS = [
+    "Draft copy for {campaign}",
+    "Design assets for {campaign}",
+    "Schedule posts for {campaign}"
+]
+
+GENERIC_TASKS = [
+    "Weekly sync",
+    "Follow up on action items",
+    "Update documentation"
+]
+
+COMPONENTS = ["auth", "payments", "dashboard", "API"]
+CAMPAIGNS = ["Q2 launch", "Webinar", "Email campaign"]
+
+def generate_task_name(project_name):
+    if "Sprint" in project_name or "Bug" in project_name:
+        return random.choice(ENGINEERING_TASKS).format(
+            component=random.choice(COMPONENTS)
+        )
+    elif "Campaign" in project_name:
+        return random.choice(MARKETING_TASKS).format(
+            campaign=random.choice(CAMPAIGNS)
+        )
+    else:
+        return random.choice(GENERIC_TASKS)
+
 def generate_tasks(projects, sections, users):
     tasks = []
     now = datetime.now()
@@ -14,14 +48,4 @@ def generate_tasks(projects, sections, users):
         n_tasks = random.randint(20, 60)
 
         for _ in range(n_tasks):
-            section = random.choice(project_sections)
-
-            tasks.append({
-                "task_id": str(uuid.uuid4()),
-                "project_id": project["project_id"],
-                "section_id": section["section_id"],
-                "created_at": now - timedelta(days=random.randint(0, 180))
-            })
-
-    return tasks
-
+            se
