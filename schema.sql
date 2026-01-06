@@ -28,7 +28,7 @@ CREATE TABLE teams (
     team_id TEXT PRIMARY KEY,
     organization_id TEXT NOT NULL,
     name TEXT NOT NULL,
-    description TEXT,
+    department TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL,
     FOREIGN KEY (organization_id) REFERENCES organizations(organization_id)
 );
