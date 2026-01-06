@@ -68,7 +68,7 @@ def generate_due_date(created_at):
     elif r < 0.95:
         days = random.randint(31, 90)
     else:
-        days = -random.randint(1, 14)  # overdue
+        days = -random.randint(1, 14)
 
     due = created_at + timedelta(days=days)
 
@@ -84,7 +84,7 @@ def generate_completion(created_at):
     """
     Returns (completed, completed_at)
     """
-    completed = random.random() < 0.65  # ~65% completion rate
+    completed = random.random() < 0.65
 
     if not completed:
         return False, None
@@ -93,7 +93,6 @@ def generate_completion(created_at):
         days=random.randint(1, 21)
     )
 
-    # Completed_at should not be in the future
     if completed_at > datetime.now():
         completed_at = datetime.now()
 
@@ -132,12 +131,12 @@ def generate_tasks(projects, sections, users):
                 "task_id": str(uuid.uuid4()),
                 "project_id": project["project_id"],
                 "section_id": section["section_id"],
-                "name": generate_task_name(project["name"]),
                 "assignee_id": assignee_id,
-                "created_at": created_at,
+                "name": generate_task_name(project["name"]),
                 "due_date": due_date,
                 "completed": completed,
-                "completed_at": completed_at
+                "completed_at": completed_at,
+                "created_at": created_at
             })
 
     return tasks
