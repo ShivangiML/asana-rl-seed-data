@@ -99,6 +99,24 @@ CREATE TABLE comments (
 );
 
 -- Custom Field Definitions
+CREATE TABLE custom_field_definitions (
+    field_id TEXT PRIMARY KEY,
+    project_id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    field_type TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    FOREIGN KEY (project_id) REFERENCES projects(project_id)
+);
+
 -- Custom Field Values
+CREATE TABLE custom_field_values (
+    task_id TEXT NOT NULL,
+    field_id TEXT NOT NULL,
+    value TEXT,
+    PRIMARY KEY (task_id, field_id),
+    FOREIGN KEY (task_id) REFERENCES tasks(task_id),
+    FOREIGN KEY (field_id) REFERENCES custom_field_definitions(field_id)
+);
+
 -- Tags
 -- Task-Tag Associations
