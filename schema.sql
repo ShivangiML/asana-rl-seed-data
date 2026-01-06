@@ -69,6 +69,24 @@ CREATE TABLE sections (
 );
 
 -- Tasks
+CREATE TABLE tasks (
+    task_id TEXT PRIMARY KEY,
+    project_id TEXT NOT NULL,
+    section_id TEXT,
+    parent_task_id TEXT,
+    assignee_id TEXT,
+    name TEXT NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP NOT NULL,
+    due_date DATE,
+    completed BOOLEAN NOT NULL DEFAULT 0,
+    completed_at TIMESTAMP,
+    FOREIGN KEY (project_id) REFERENCES projects(project_id),
+    FOREIGN KEY (section_id) REFERENCES sections(section_id),
+    FOREIGN KEY (parent_task_id) REFERENCES tasks(task_id),
+    FOREIGN KEY (assignee_id) REFERENCES users(user_id)
+);
+
 -- Comments
 -- Custom Field Definitions
 -- Custom Field Values
