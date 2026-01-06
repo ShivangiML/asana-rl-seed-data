@@ -1,0 +1,15 @@
+-- Asana RL Environment Schema
+-- Simulated B2B SaaS company (~7000 employees)
+
+-- Organizations / Workspaces
+-- Users
+-- Teams
+-- Team Memberships
+-- Projects
+-- Sections
+-- Tasks
+-- Comments
+-- Custom Field Definitions
+-- Custom Field Values
+-- Tags
+-- Task-Tag Associations
