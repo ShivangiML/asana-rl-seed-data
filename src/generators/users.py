@@ -44,6 +44,7 @@ def generate_users(n_users, company_domain="acme.com"):
 
         users.append({
             "user_id": str(uuid.uuid4()),
+            "organization_id": "org_001",
             "full_name": f"{first} {last}",
             "email": email,
             "role": weighted_choice(ROLES),
