@@ -88,6 +88,16 @@ CREATE TABLE tasks (
 );
 
 -- Comments
+CREATE TABLE comments (
+    comment_id TEXT PRIMARY KEY,
+    task_id TEXT NOT NULL,
+    user_id TEXT NOT NULL,
+    body TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    FOREIGN KEY (task_id) REFERENCES tasks(task_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
 -- Custom Field Definitions
 -- Custom Field Values
 -- Tags
