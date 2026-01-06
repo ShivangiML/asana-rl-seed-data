@@ -2,6 +2,17 @@ import uuid
 import random
 from datetime import datetime, timedelta
 
+FIRST_NAMES = [
+    "Aarav", "Emily", "Liam", "Sophia", "Noah", "Olivia",
+    "Arjun", "Isabella", "Ethan", "Mia", "Lucas", "Amelia",
+    "Rohan", "Ava", "Daniel", "Charlotte", "James", "Harper"
+]
+
+LAST_NAMES = [
+    "Patel", "Smith", "Johnson", "Brown", "Khan", "Garcia",
+    "Lee", "Martinez", "Nguyen", "Singh", "Taylor", "Anderson"
+]
+
 ROLES = [
     ("Engineer", 0.45),
     ("Product Manager", 0.10),
@@ -22,13 +33,19 @@ def weighted_choice(choices):
             return role
     return choices[-1][0]
 
-def generate_users(n_users):
+def generate_users(n_users, company_domain="acme.com"):
     users = []
     start_date = datetime.now() - timedelta(days=3*365)
 
     for _ in range(n_users):
+        first = random.choice(FIRST_NAMES)
+        last = random.choice(LAST_NAMES)
+        email = f"{first.lower()}.{last.lower()}@{company_domain}"
+
         users.append({
             "user_id": str(uuid.uuid4()),
+            "full_name": f"{first} {last}",
+            "email": email,
             "role": weighted_choice(ROLES),
             "created_at": start_date + timedelta(days=random.randint(0, 3*365))
         })
