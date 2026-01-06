@@ -1,48 +1,26 @@
-import uuid
+from datetime import datetime, timedelta
 import random
-
-TEAM_TYPES = {
-    "Engineering": [
-        "Backend Platform",
-        "Frontend Web",
-        "Mobile Apps",
-        "Infrastructure",
-        "QA Automation"
-    ],
-    "Product": [
-        "Product Core",
-        "Growth",
-        "Platform PMs"
-    ],
-    "Design": [
-        "UX Design",
-        "Brand Design"
-    ],
-    "Marketing": [
-        "Demand Gen",
-        "Content Marketing",
-        "Product Marketing"
-    ],
-    "Sales Ops": [
-        "Sales Operations",
-        "Revenue Analytics"
-    ],
-    "People Ops": [
-        "Recruiting",
-        "HR Operations"
-    ]
-}
+import uuid
 
 def generate_teams(organization_id):
     teams = []
+    start_date = datetime(2021, 1, 1)
 
-    for dept, team_names in TEAM_TYPES.items():
+    TEAM_DEPARTMENTS = {
+        "Engineering": ["Backend", "Frontend", "Infra", "Mobile"],
+        "Product": ["Product Management", "Design"],
+        "Marketing": ["Growth", "Content", "SEO"],
+        "Operations": ["HR", "Finance", "IT"]
+    }
+
+    for dept, team_names in TEAM_DEPARTMENTS.items():
         for name in team_names:
             teams.append({
                 "team_id": str(uuid.uuid4()),
                 "organization_id": organization_id,
                 "name": name,
-                "department": dept
+                "department": dept,
+                "created_at": start_date + timedelta(days=random.randint(0, 900))
             })
 
     return teams
