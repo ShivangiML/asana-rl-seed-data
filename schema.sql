@@ -17,6 +17,7 @@ CREATE TABLE users (
     email TEXT NOT NULL,
     job_title TEXT,
     department TEXT,
+    role TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL,
     deactivated_at TIMESTAMP,
     FOREIGN KEY (organization_id) REFERENCES organizations(organization_id)
