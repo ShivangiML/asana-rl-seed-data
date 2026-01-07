@@ -28,6 +28,7 @@ This repository contains a complete pipeline for generating a realistic, enterpr
 
 ## 🗂 Repository Structure
 
+<<<<<<< HEAD
 - schema.sql — database schema
 - src/ — data generation pipeline
 - output/ — generated SQLite database
@@ -40,3 +41,20 @@ This repository contains a complete pipeline for generating a realistic, enterpr
 pip install -r requirements.txt
 rm output/asana_simulation.sqlite
 python src/main.py
+=======
+>>>>>>> e408c18 (Add project README with setup and usage instructions)
+<<<<<<< HEAD
+(old README content)
+=======
+(your new README content)
+>>>>>>> some-hash
+
+<<<<<<< HEAD
+(old README content)
+=======
+(your new README content)
+>>>>>>> some-hash
+<<<<<<< HEAD
+=======
+>>>>>>>
+
