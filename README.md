@@ -1,4 +1,4 @@
-# asana-rl-seed-data# Asana RL Seed Data Simulation
+# Asana RL Seed Data Simulation
 
 This repository contains a complete pipeline for generating a realistic, enterprise-scale Asana workspace dataset. The dataset is designed to serve as high-quality seed data for reinforcement learning (RL) environments that evaluate computer-use AI agents on project management workflows. The simulation models a B2B SaaS company with approximately 7,000 users across engineering, product, marketing, and operations teams.
 
